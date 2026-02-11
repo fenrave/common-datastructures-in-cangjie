@@ -1,0 +1,5 @@
+/.cache
+/.vscode
+/cjlintignore.cfg
+/cjpm.lock
+/target
