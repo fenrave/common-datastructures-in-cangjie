@@ -37,6 +37,23 @@ func vecTest(): Unit {
 
 }
 
+func queTest(): Unit {
+	var tQueue = Queue<Int64>(0, 12)
+
+	tQueue.PushTop(num.nextInt64())
+	tQueue.PushTop(num.nextInt64())
+	tQueue.PushTop(num.nextInt64())
+	print(tQueue.items)
+	tQueue.PullTop()
+	tQueue.PullTop()
+	tQueue.PullTop()
+	print(tQueue.items)
+	tQueue.PushTop(num.nextInt64())
+	tQueue.PushTop(num.nextInt64())
+	tQueue.PushTop(num.nextInt64())
+	print(tQueue.items)
+}
+
 main(): Int64 {
 
 	print("\nStack Testing:\n")
@@ -44,5 +61,8 @@ main(): Int64 {
 
 	print("\nVector Testing:\n")
 	vecTest()
+
+	print("\nQueue Testing:\n")
+	queTest()
 	return 0
 }
