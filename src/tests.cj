@@ -31,8 +31,7 @@ func vecTest(): Unit {
 
 	print("\nVector Operators\n")
 	Vec1.printcomponents()
-	Vec1 * Vec2
-	Vec1 / Vec2
+	Vec1 *= Vec2 / Vec1 / Vec2 / Vec1 * Vec2 + Vec1
 	Vec1.printcomponents()
 	print("\nEnd Vector Operators\n")
 
