@@ -3,53 +3,52 @@ package datastructures
 import std.math.sqrt
 
 public struct Vector4 {
-	public var components: Array<Float64>
+	var x: Float64
+	var y: Float64
+	var z: Float64
+	var w: Float64
 
 	public init(X: Float64, Y: Float64, Z: Float64, W: Float64) {
-		this.components = [X,Y,Z,W]
+		x = X
+		y = Y
+		z = Z
+		w = W
 	}
 
 	public func printcomponents() {
-		print("\nx:${this.components[0]}\ny:${this.components[1]}\nz:${this.components[2]}\nw:${this.components[3]}\n")
+		print("\nx:${x}\ny:${y}\nz:${z}\nw:${w}\n")
 	}
 
-	public operator func -(Target: Vector4) {
-		this.components[0] -= Target.components[0]
-		this.components[1] -= Target.components[1]
-		this.components[2] -= Target.components[2]
-		this.components[3] -= Target.components[3]
-		return this
+	operator mut func -(Target: Vector4) {
+		z -= Target.z
+		x -= Target.x
+		y -= Target.y
+		w -= Target.w
 	}
 
-	public operator func +(Target: Vector4): Vector4 {
-		this.components[0] += Target.components[0]
-		this.components[1] += Target.components[1]
-		this.components[2] += Target.components[2]
-		this.components[3] += Target.components[3]
-
-		return this
+	operator mut func +(Target: Vector4) {
+		z += Target.z
+		x += Target.x
+		y += Target.y
+		w += Target.w
 	}
 
-	public operator func *(Target: Vector4): Vector4 {
-		this.components[0] *= Target.components[0]
-		this.components[1] *= Target.components[1]
-		this.components[2] *= Target.components[2]
-		this.components[3] *= Target.components[3]
-
-		return this
+	operator mut func *(Target: Vector4) {
+		z *= Target.z
+		x *= Target.x
+		y *= Target.y
+		w *= Target.w
 	}
 
-	public operator func /(Target: Vector4): Vector4 {
-		this.components[0] /= Target.components[0]
-		this.components[1] /= Target.components[1]
-		this.components[2] /= Target.components[2]
-		this.components[3] /= Target.components[3]
-
-		return this
+	operator mut func /(Target: Vector4) {
+		z /= Target.z
+		x /= Target.x
+		y /= Target.y
+		w /= Target.w
 	}
 
-	public func magnitude(): Float64 {
-		return sqrt(components[0]*components[0] + components[1]*components[1] + components[2]*components[2] + components[3]*components[3])
+	mut func magnitude(): Float64 {
+		return sqrt(x*x + y*y + z*z + w*w)
 	}
 
 }
