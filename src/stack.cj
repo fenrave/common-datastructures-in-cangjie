@@ -1,7 +1,7 @@
 package datastructures
 
 public struct Stack<T> {
-	var items: Array<T>
+	let items: Array<T>
 	var top: Int64
 	var size: Int64
 
@@ -19,6 +19,10 @@ public struct Stack<T> {
 		return Index
 	}
 
+	mut func Clear() {
+		top = 0
+	}
+
 	func Top(): T {
 		return items[top]
 	}
@@ -26,4 +30,5 @@ public struct Stack<T> {
 	func Index(Pos: Int64): T {
 		return items[Pos]
 	}
+
 }
