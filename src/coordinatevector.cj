@@ -16,7 +16,7 @@ public struct Vector4 {
 	}
 
 	public func printcomponents() {
-		print("\nx:${x}\ny:${y}\nz:${z}\nw:${w}\n")
+		print("\nx: ${x}\ny: ${y}\nz: ${z}\nw: ${w}\n")
 	}
 
 	operator mut func -(Target: Vector4) {
