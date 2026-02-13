@@ -26,8 +26,8 @@ func staTest(): Unit {
 }
 
 func vecTest(): Unit {
-	var Vec1 = Vector4(10.0,10.0,10.0,10.0)
-	var Vec2 = Vector4(10.0,10.0,10.0,10.0)
+	var Vec1 = Vector(10.0,10.0,10.0,10.0)
+	var Vec2 = Vector(10.0,10.0,10.0,10.0)
 
 	print("\nVector Operators\n")
 	Vec1.printcomponents()
@@ -54,6 +54,14 @@ func queTest(): Unit {
 	print(tQueue.items)
 }
 
+func dynTest(): Unit {
+	var vector = DynamicArray<Int64>(0, 24)
+
+	vector[1000] = 2
+	print(vector.items)
+	// print(vector[1000])
+}
+
 main(): Int64 {
 
 	print("\nStack Testing:\n")
@@ -64,5 +72,8 @@ main(): Int64 {
 
 	print("\nQueue Testing:\n")
 	queTest()
+
+	print("\nDynamic Array Testing\n")
+	dynTest()
 	return 0
 }

@@ -1,8 +1,9 @@
 package datastructures
 
 import std.math.sqrt
+import std.core
 
-public struct Vector4 {
+public struct Vector {
 	let x: Float64
 	let y: Float64
 	let z: Float64
@@ -19,8 +20,8 @@ public struct Vector4 {
 		print("\nx: ${x}\ny: ${y}\nz: ${z}\nw: ${w}\n")
 	}
 
-	operator func -(Target: Vector4) {
-		return Vector4(
+	operator func -(Target: Vector) {
+		return Vector(
 			z - Target.z,
 			x - Target.x,
 			y - Target.y,
@@ -28,8 +29,8 @@ public struct Vector4 {
 		)
 	}
 
-	operator func +(Target: Vector4): Vector4 {
-		return Vector4(
+	operator func +(Target: Vector): Vector {
+		return Vector(
 			z + Target.z,
 			x + Target.x,
 			y + Target.y,
@@ -37,8 +38,8 @@ public struct Vector4 {
 		)
 	}
 
-	operator func *(Target: Vector4) {
-		return Vector4(
+	operator func *(Target: Vector) {
+		return Vector(
 			z * Target.z,
 			x * Target.x,
 			y * Target.y,
@@ -46,8 +47,8 @@ public struct Vector4 {
 		)
 	}
 
-	operator func /(Target: Vector4) {
-		return Vector4(
+	operator func /(Target: Vector) {
+		return Vector(
 			z / Target.z,
 			x / Target.x,
 			y / Target.y,
@@ -58,5 +59,4 @@ public struct Vector4 {
 	func magnitude(): Float64 {
 		return sqrt(x*x + y*y + z*z + w*w)
 	}
-
 }

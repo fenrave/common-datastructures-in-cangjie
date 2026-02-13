@@ -9,7 +9,7 @@ public struct Queue<T> {
 	let size: Int64
 
 	public init(Item: T, Size: Int64) {
-		items = Array<T>(Size, repeat: Item)
+		items = Array<T>(Size, repeat: unsafe {zeroValue<T>()})
 		size = Size
 
 		top = -1
