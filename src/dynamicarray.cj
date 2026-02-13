@@ -29,6 +29,18 @@ public struct DynamicArray<T> {
 		}
 		items[Index] = value
 	}
+	/**
+	
+	no direct lua equivalent, maybe something like 
+
+	local function obj:Slice(start, end)
+		return {table.unpack(self.items, start, end)}
+	end
+	
+	*/
+	operator func [](Index: Range<Int64>): Array<T> {
+		return items.slice(Index.start, Index.end)
+	}
 
 	private mut func Resize(Index: Int64): Unit {
 		let oldsize = size
