@@ -43,15 +43,15 @@ func queTest(): Unit {
 	tQueue.PushTop(num.nextInt64())
 	tQueue.PushTop(num.nextInt64())
 	tQueue.PushTop(num.nextInt64())
-	print(tQueue.items)
+	print(tQueue.GetItems())
 	tQueue.PullTop()
 	tQueue.PullTop()
 	tQueue.PullTop()
-	print(tQueue.items)
+	print(tQueue.GetItems())
 	tQueue.PushTop(num.nextInt64())
 	tQueue.PushTop(num.nextInt64())
 	tQueue.PushTop(num.nextInt64())
-	print(tQueue.items)
+	print(tQueue.GetItems())
 }
 
 func dynTest(): Unit {
@@ -59,6 +59,9 @@ func dynTest(): Unit {
 
 	vector[1000] = 2
 	print(vector.items)
+
+	let slice: Array<Int64> = vector[1..9]
+	print(slice)
 	// print(vector[1000])
 }
 

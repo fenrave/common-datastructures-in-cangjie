@@ -1,12 +1,12 @@
 package datastructures
 
 public struct Queue<T> {
-	let items: Array<T>
+	private let items: Array<T>
 
-	var top: Int64
-	var end: Int64
+	private var top: Int64
+	private var end: Int64
 
-	let size: Int64
+	private let size: Int64
 
 	public init(Item: T, Size: Int64) {
 		items = Array<T>(Size, repeat: unsafe {zeroValue<T>()})
@@ -15,7 +15,11 @@ public struct Queue<T> {
 		top = -1
 		end = -1
 	}
-	
+
+	func GetItems() {
+		return items
+	}
+
 	mut func PullTop(): T {
 		let item = items[top] ; top--
 		return item
@@ -32,6 +36,13 @@ public struct Queue<T> {
 
 	mut func PushEnd(Item: T): Unit {
 		end++ ; items[top] = Item
+	}
+
+	func Peek(Index: Int64): T {
+		if (Index > size) {
+			throw IndexOutOfBoundsException()
+		}
+		return items[Index]
 	}
 
 	func Empty(): Bool {

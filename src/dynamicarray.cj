@@ -16,7 +16,7 @@ public struct DynamicArray<T> {
 
 	//read -> equivalent to lua mt.__index
 	operator mut func [](Index: Int64): T {
-		if (Index > limit) {
+		if (Index > limit || Index > size) {
 			Resize(Index)
 		}
 		return items[Index]
@@ -24,7 +24,7 @@ public struct DynamicArray<T> {
 
 	//write -> equivalent to lua mt.__newindex
 	operator mut func [](Index: Int64, value!: T): Unit {
-		if (Index > limit) {
+		if (Index > limit || Index > size) {
 			Resize(Index)
 		}
 		items[Index] = value
@@ -44,8 +44,7 @@ public struct DynamicArray<T> {
 
 	private mut func Resize(Index: Int64): Unit {
 		let oldsize = size
-		limit *= 2
-		size = (size*2) >> 1
+		limit = Index ; size = (size*2) >> 1
 		if (Index > size) {
 			size = Index + oldsize
 		}
