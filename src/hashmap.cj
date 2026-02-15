@@ -2,7 +2,7 @@ package datastructures
 
 private func Hash(str: String, size: Int64): Int64 {
     var val: Int64 = 0
-    for (i in str) {val = (val*val + Int64(i))  % size }
+    for (i in str) {val = (val*val + Int64(i)) % size }
     return val
 }
 

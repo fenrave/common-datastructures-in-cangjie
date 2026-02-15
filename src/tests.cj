@@ -70,6 +70,7 @@ func hasTest(): Unit {
 	newmap["a"] = 500
 	print(newmap["a"])
 	print(newmap["Ok"])
+	print(newmap["000000000000000000000000000000000000000000000000"])
 }
 
 main(): Int64 {
