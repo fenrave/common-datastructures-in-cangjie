@@ -7,10 +7,9 @@ public struct DynamicArray<T> {
 	private var size: Int64
 	private var limit: Int64
 
-	init(Item: T, Size: Int64) {
+	init(Item!: T = unsafe { zeroValue<T>() }, Size!: Int64 = 128) {
 		size = Size*2
-
-		items = Array<T>(size, repeat: unsafe {zeroValue<T>()})
+		items = Array<T>(size, repeat: Item)
 		limit = Size
 	}
 

@@ -9,7 +9,7 @@ public struct Vector4 {
 	let z: Float32
 	let a: Float32
 
-	init(X: Float32, Y: Float32, Z: Float32, A: Float32) {
+	public init(X: Float32, Y: Float32, Z: Float32, A: Float32) {
 		x = X
 		y = Y
 		z = Z
@@ -60,11 +60,15 @@ public struct Vector4 {
 }
 
 public struct Vector3 {
-	let x: Float32 = 0.0
-	let y: Float32 = 0.0
-	let z: Float32 = 0.0
+	let x: Float32
+	let y: Float32
+	let z: Float32
 
-	init(x: Float32, y: Float32, z: Float32) {}
+	init(X: Float32, Y: Float32, Z: Float32) {
+		x = X
+		y = Y
+		z = Z
+	}
 
 	public func printcomponents() {
 		print("\nx: ${x}\ny: ${y}\nz: ${z}\n")

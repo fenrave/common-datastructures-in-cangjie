@@ -4,7 +4,7 @@ import std.random.Random
 let num = Random()
 
 func staTest(): Unit {
-	var Stack = Stack<Int64>(0, 24)
+	var Stack = Stack<Int64>(Size: 24)
 
 	print("Fill\n")
 
@@ -31,14 +31,14 @@ func vecTest(): Unit {
 
 	print("\nVector Operators\n")
 	Vec1.printcomponents()
-	Vec1 *= Vec2 / Vec1 / Vec2 / Vec1 * Vec2 + Vec1
+	Vec1 *= Vec2 / Vec1 / Vec2 / Vec1 * Vec2 + Vec1 - Vec2
 	Vec1.printcomponents()
 	print("\nEnd Vector Operators\n")
 
 }
 
 func queTest(): Unit {
-	var tQueue = Queue<Int64>(0, 12)
+	var tQueue = Queue<Int64>(Size: 12)
 
 	tQueue.PushTop(num.nextInt64())
 	tQueue.PushTop(num.nextInt64())
@@ -55,7 +55,7 @@ func queTest(): Unit {
 }
 
 func dynTest(): Unit {
-	var vector = DynamicArray<Int64>(0, 24)
+	var vector = DynamicArray<Int64>(Item: 0, Size: 128)
 
 	vector[1000] = 2
 	print(vector.items)
@@ -63,6 +63,12 @@ func dynTest(): Unit {
 	let slice: Array<Int64> = vector[1..9]
 	print(slice)
 	// print(vector[1000])
+}
+
+func hasTest(): Unit {
+	var newmap = Hashmap<Int64>()
+	newmap["hi"] = 500
+	print(newmap["hi"])
 }
 
 main(): Int64 {
@@ -78,5 +84,8 @@ main(): Int64 {
 
 	print("\nDynamic Array Testing\n")
 	dynTest()
+
+	print("\nHashmap Test\n")
+	hasTest()
 	return 0
 }

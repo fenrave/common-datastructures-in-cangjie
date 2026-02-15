@@ -8,8 +8,8 @@ public struct Queue<T> {
 
 	private let size: Int64
 
-	public init(Item: T, Size: Int64) {
-		items = Array<T>(Size, repeat: unsafe {zeroValue<T>()})
+	public init(Item!: T = unsafe { zeroValue<T>() }, Size!: Int64 = 128) {
+		items = Array<T>(Size, repeat: Item)
 		size = Size
 
 		top = -1

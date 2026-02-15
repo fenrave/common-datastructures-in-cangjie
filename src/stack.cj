@@ -5,8 +5,8 @@ public struct Stack<T> {
 	var top: Int64
 	var size: Int64
 
-	init(Item: T, Size: Int64) {
-		items = Array<T>(Size, repeat: unsafe {zeroValue<T>()})
+	init(Item!: T = unsafe { zeroValue<T>() }, Size!: Int64 = 128) {
+		items = Array<T>(Size, repeat: Item)
 		top = 0 ; size = Size
 	}
 
