@@ -26,8 +26,8 @@ func staTest(): Unit {
 }
 
 func vecTest(): Unit {
-	var Vec1 = Vector(10.0,10.0,10.0,10.0)
-	var Vec2 = Vector(10.0,10.0,10.0,10.0)
+	var Vec1 = Vector4(10.0,10.0,10.0,10.0)
+	var Vec2 = Vector4(10.0,10.0,10.0,10.0)
 
 	print("\nVector Operators\n")
 	Vec1.printcomponents()

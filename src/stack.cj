@@ -27,8 +27,20 @@ public struct Stack<T> {
 		return items[top]
 	}
 
-	func Index(Pos: Int64): T {
-		return items[Pos]
+	operator func [](Index: Int64): T {
+		if (Index > size) {
+			throw IndexOutOfBoundsException("Index ${Index} is larger than ${size} or smaller than 0")
+		}
+
+		return items[Index]
+	}
+
+	operator func [](Index: Int64, value!: T): Unit {
+		if (Index > size) {
+			throw IndexOutOfBoundsException("Index ${Index} is larger than ${size} or smaller than 0")
+		}
+
+		items[Index] = value
 	}
 
 }
