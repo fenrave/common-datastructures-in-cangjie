@@ -67,8 +67,9 @@ func dynTest(): Unit {
 
 func hasTest(): Unit {
 	var newmap = Hashmap<Int64>()
-	newmap["hi"] = 500
-	print(newmap["hi"])
+	newmap["a"] = 500
+	print(newmap["a"])
+	print(newmap["Ok"])
 }
 
 main(): Int64 {

@@ -30,12 +30,12 @@ public struct Queue<T> {
 	}
 
 	mut func PullEnd(): T {
-		let item = items[end] ; end--
+		let item = items[end] ; end++
 		return item
 	}
 
 	mut func PushEnd(Item: T): Unit {
-		end++ ; items[top] = Item
+		end-- ; items[top] = Item
 	}
 
 	func Peek(Index: Int64): T {
