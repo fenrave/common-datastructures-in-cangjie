@@ -1,110 +1,119 @@
 package datastructures
 
 import std.math.sqrt
+import std.math.Number
 import std.core
+import datastructures.macros.Template
+// cjlint-ignore -start !G.OPR.01
+public struct Vector4<T> where T <: Number<T> {
+	let x: T
+	let y: T
+	let z: T
+	let w: T
 
-public struct Vector4 {
-	let x: Float32
-	let y: Float32
-	let z: Float32
-	let a: Float32
-
-	public init(X: Float32, Y: Float32, Z: Float32, A: Float32) {
+	public init(X: T, Y: T, Z: T, W: T) {
 		x = X
 		y = Y
 		z = Z
-		a = A
-	}
-
-	public func printcomponents() {
-		print("\nx: ${x}\ny: ${y}\nz: ${z}\na: ${a}\n")
+		w = W
 	}
 	
-	operator func -(Target: Vector4): Vector4 {
-		return Vector4(
+	operator func -(Target: Vector4<T>): Vector4<T> {
+		return Vector4<T>(
 			z - Target.z,
 			x - Target.x,
 			y - Target.y,
-			a - Target.a,
+			w - Target.w
 		)
 	}
-	operator func +(Target: Vector4): Vector4 {
+
+	operator func -(): Vector4<T> {
+		return Vector4<T>(
+			-z,
+			-x,
+			-y,
+			-w
+		)
+	}
+
+	operator func +(Target: Vector4<T>): Vector4<T> {
 		return Vector4(
 			z + Target.z,
 			x + Target.x,
 			y + Target.y,
-			a + Target.a,
+			w + Target.w,
 		)
 	}
-	operator func *(Target: Vector4): Vector4 {
+
+	operator func *(Target: Vector4<T>): Vector4<T> {
 		return Vector4(
 			z * Target.z,
 			x * Target.x,
 			y * Target.y,
-			a * Target.a,
+			w * Target.w,
 		)
 	}
 
-	operator func /(Target: Vector4): Vector4 {
+	operator func /(Target: Vector4<T>): Vector4<T> {
 		return Vector4(
 			z / Target.z,
 			x / Target.x,
 			y / Target.y,
-			a / Target.a,
+			w / Target.w,
 		)
-	}
-
-	func magnitude(): Float32 {
-		return sqrt(x*x + y*y + z*z + a*a)
 	}
 }
 
-public struct Vector3 {
-	let x: Float32
-	let y: Float32
-	let z: Float32
+public struct Vector3<T> where T <: Number<T> {
+	let x: T
+	let y: T
+	let z: T
 
-	init(X: Float32, Y: Float32, Z: Float32) {
+	public init(X: T, Y: T, Z: T) {
 		x = X
 		y = Y
 		z = Z
 	}
-
-	public func printcomponents() {
-		print("\nx: ${x}\ny: ${y}\nz: ${z}\n")
-	}
 	
-	operator func -(Target: Vector3): Vector3 {
-		return Vector3(
+	operator func -(Target: Vector3<T>): Vector3<T> {
+		return Vector3<T>(
 			z - Target.z,
 			x - Target.x,
-			y - Target.y,
+			y - Target.y
 		)
 	}
-	operator func +(Target: Vector3): Vector3 {
+
+	operator func -(): Vector3<T> {
+		return Vector3<T>(
+			-z,
+			-x,
+			-y
+		)
+	}
+
+	operator func +(Target: Vector3<T>): Vector3<T> {
 		return Vector3(
 			z + Target.z,
 			x + Target.x,
-			y + Target.y,
+			y + Target.y
 		)
 	}
-	operator func *(Target: Vector3): Vector3 {
+
+	operator func *(Target: Vector3<T>): Vector3<T> {
 		return Vector3(
 			z * Target.z,
 			x * Target.x,
-			y * Target.y,
+			y * Target.y
 		)
 	}
 
-	operator func /(Target: Vector3): Vector3 {
+	operator func /(Target: Vector3<T>): Vector3<T> {
 		return Vector3(
 			z / Target.z,
 			x / Target.x,
-			y / Target.y,
+			y / Target.y
 		)
 	}
-
-	func magnitude(): Float32 {
-		return sqrt(x*x + y*y + z*z)
-	}
 }
+
+// cjlint-ignore -end

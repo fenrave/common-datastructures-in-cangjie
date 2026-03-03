@@ -16,36 +16,36 @@ public struct Queue<T> {
 		end = -1
 	}
 
-	func GetItems() {
+	public func getItems(): Array<T> {
 		return items
 	}
 
-	mut func PullTop(): T {
+	public mut func pullTop(): T {
 		let item = items[top] ; top--
 		return item
 	}
 
-	mut func PushTop(Item: T): Unit {
+	public mut func pushTop(Item: T): Unit {
 		top++ ; items[top] = Item
 	}
 
-	mut func PullEnd(): T {
+	public mut func pullEnd(): T {
 		let item = items[end] ; end++
 		return item
 	}
 
-	mut func PushEnd(Item: T): Unit {
+	public mut func pushEnd(Item: T): Unit {
 		end-- ; items[top] = Item
 	}
 
-	func Peek(Index: Int64): T {
-		if (Index > size) {
+	public func peek(Index: Int64): T {
+		if (Index > top && Index < end) {
 			throw IndexOutOfBoundsException()
 		}
 		return items[Index]
 	}
 
-	func Empty(): Bool {
+	public func empty(): Bool {
 		if (top == end) {
 			return true
 		} else {
@@ -53,8 +53,8 @@ public struct Queue<T> {
 		}
 	}
 
-	func Full(): Bool {
-		if (size == top) {
+	public func full(): Bool {
+		if (top == size) {
 			return true
 		} else {
 			return false

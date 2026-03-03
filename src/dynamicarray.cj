@@ -12,11 +12,11 @@ public struct DynamicArray<T> {
 		items = Array<T>(size, repeat: Item)
 		limit = Size
 	}
-
+	// cjlint-ignore -start !G.OPR.01 !G.ERR.01
 	//read -> equivalent to lua mt.__index
 	operator mut func [](Index: Int64): T {
 		if (Index > limit || Index > size) {
-			Resize(Index)
+			resize(Index)
 		}
 		return items[Index]
 	}
@@ -24,7 +24,7 @@ public struct DynamicArray<T> {
 	//write -> equivalent to lua mt.__newindex
 	operator mut func [](Index: Int64, value!: T): Unit {
 		if (Index > limit || Index > size) {
-			Resize(Index)
+			resize(Index)
 		}
 		items[Index] = value
 	}
@@ -41,7 +41,7 @@ public struct DynamicArray<T> {
 		return items.slice(Index.start, Index.end)
 	}
 
-	private mut func Resize(Index: Int64): Unit {
+	private mut func resize(Index: Int64): Unit {
 		let oldsize = size
 		limit = Index ; size = (size*2) >> 1
 		if (Index > size) {
@@ -51,4 +51,5 @@ public struct DynamicArray<T> {
 		items.copyTo(newitems, 0, 0, oldsize)
 		items = newitems
 	}
+	// cjlint-ignore -end
 }

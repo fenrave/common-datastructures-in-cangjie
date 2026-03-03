@@ -1,16 +1,16 @@
 package datastructures
 import std.random.Random
 
-let num = Random()
-
+let NUM = Random()
+// cjlint-ignore -start !G.VAR.01
 func staTest(): Unit {
 	var Stack = Stack<Int64>(Size: 24)
 
 	print("Fill\n")
 
 	for (i in 1..24) {
-		Stack.Push(num.nextInt64(500))
-		print("Index: ${i} is ${Stack.Top()}\n")
+		Stack.push(NUM.nextInt64(500))
+		print("Index: ${i} is ${Stack.getTop()}\n")
 	}
 
 	print("Top: ${Stack.top}\nEnd Fill")
@@ -18,7 +18,7 @@ func staTest(): Unit {
 	print("Empty\n")
 
 	for (_ in 1..24) {
-		let Item = Stack.Pop()
+		let Item = Stack.pop()
 		print("Item: ${Item} at ${Stack.top + 1}\n")
 	}
 
@@ -30,9 +30,9 @@ func vecTest(): Unit {
 	var Vec2 = Vector4(10.0,10.0,10.0,10.0)
 
 	print("\nVector Operators\n")
-	Vec1.printcomponents()
+	print(Vec1.x)
 	Vec1 *= Vec2 / Vec1 / Vec2 / Vec1 * Vec2 + Vec1 - Vec2
-	Vec1.printcomponents()
+	print(Vec1.x)
 	print("\nEnd Vector Operators\n")
 
 }
@@ -40,18 +40,18 @@ func vecTest(): Unit {
 func queTest(): Unit {
 	var tQueue = Queue<Int64>(Size: 12)
 
-	tQueue.PushTop(num.nextInt64())
-	tQueue.PushTop(num.nextInt64())
-	tQueue.PushTop(num.nextInt64())
-	print(tQueue.GetItems())
-	tQueue.PullTop()
-	tQueue.PullTop()
-	tQueue.PullTop()
-	print(tQueue.GetItems())
-	tQueue.PushTop(num.nextInt64())
-	tQueue.PushTop(num.nextInt64())
-	tQueue.PushTop(num.nextInt64())
-	print(tQueue.GetItems())
+	tQueue.pushTop(NUM.nextInt64())
+	tQueue.pushTop(NUM.nextInt64())
+	tQueue.pushTop(NUM.nextInt64())
+	print(tQueue.getItems())
+	tQueue.pullTop()
+	tQueue.pullTop()
+	tQueue.pullTop()
+	print(tQueue.getItems())
+	tQueue.pushTop(NUM.nextInt64())
+	tQueue.pushTop(NUM.nextInt64())
+	tQueue.pushTop(NUM.nextInt64())
+	print(tQueue.getItems())
 }
 
 func dynTest(): Unit {
@@ -91,3 +91,5 @@ main(): Int64 {
 	hasTest()
 	return 0
 }
+
+// cjlint-ignore -end

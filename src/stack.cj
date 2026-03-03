@@ -5,28 +5,28 @@ public struct Stack<T> {
 	var top: Int64
 	var size: Int64
 
-	init(Item!: T = unsafe { zeroValue<T>() }, Size!: Int64 = 128) {
+	public init(Item!: T = unsafe { zeroValue<T>() }, Size!: Int64 = 128) {
 		items = Array<T>(Size, repeat: Item)
 		top = 0 ; size = Size
 	}
 
-	mut func Push(Item: T): Unit {
+	public mut func push(Item: T): Unit {
 		top++ ; items[top] = Item
 	}
 
-	mut func Pop(): T {
+	public mut func pop(): T {
 		let Index: T = items[top] ; top--
 		return Index
 	}
 
-	mut func Clear() {
+	public mut func clear(): Unit {
 		top = 0
 	}
 
-	func Top(): T {
+	public func getTop(): T {
 		return items[top]
 	}
-
+	// cjlint-ignore -start !G.OPR.01 !G.ERR.01
 	operator func [](Index: Int64): T {
 		if (Index > size) {
 			throw IndexOutOfBoundsException("Index ${Index} is larger than ${size} or smaller than 0")
@@ -42,5 +42,5 @@ public struct Stack<T> {
 
 		items[Index] = value
 	}
-
+	// cjlint-ignore -end
 }

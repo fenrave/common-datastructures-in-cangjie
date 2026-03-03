@@ -1,6 +1,6 @@
 package datastructures
 
-private func Hash(str: String, size: Int64): Int64 {
+private func hash(str: String, size: Int64): Int64 {
     var val: Int64 = 0
     for (i in str) {val = (val*val + Int64(i)) % size }
     return val
@@ -14,9 +14,9 @@ public struct Hashmap<T> {
         items = Array<T>(Size, repeat: Item)
         size = Size
     }
-
+    // cjlint-ignore -start !G.OPR.01 !G.ERR.01
     operator func [](Index: String) {
-        let Pos = Hash(Index, size)
+        let Pos = hash(Index, size)
         if (Pos > size) {
             throw IndexOutOfBoundsException("Not supposed to happen. Tried to Index at ${Pos} when max size is ${size}.")
         }
@@ -25,11 +25,12 @@ public struct Hashmap<T> {
     }
 
     operator func [](Index: String, value!: T) {
-        let Pos = Hash(Index, size)
+        let Pos = hash(Index, size)
         if (Pos > size) {
             throw IndexOutOfBoundsException("Not supposed to happen. Tried to Index at ${Pos} when max size is ${size}.")
         }
 
         items[Pos] = value
     }
+	// cjlint-ignore -end
 }
